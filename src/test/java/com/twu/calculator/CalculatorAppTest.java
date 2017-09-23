@@ -29,7 +29,7 @@ public class CalculatorAppTest {
 
         String actualResult = outputContent.toString();
 
-        assertThat(actualResult, is("> 10.0\n"));
+        assertThat(actualResult, is("> 10.0"+System.getProperty("line.separator")));
     }
 
     @After
