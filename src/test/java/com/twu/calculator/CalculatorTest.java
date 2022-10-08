@@ -32,6 +32,24 @@ public class CalculatorTest {
     }
 
     @Test
+    public void shouldReturnCorrectValueWhenAFactorialValueIsAddedAsInitialCommand() {
+        Calculator calculator = new Calculator();
+
+        double actualResult = calculator.doOperation("factorial", 4.0);
+
+        assertThat(actualResult, is(24.0));
+    }
+
+    @Test
+    public void shouldReturnCorrectValueWhenAThirdOperatorValueIsAddedAsInitialCommand() {
+        Calculator calculator = new Calculator();
+
+        double actualResult = calculator.doOperation("third", 6.0);
+
+        assertThat(actualResult, is(2.0));
+    }
+
+    @Test
     public void shouldReturnCorrectValueWhenTwoAddCommandAreGiven() {
         Calculator calculator = new Calculator();
         calculator.doOperation("add", 10);
@@ -119,7 +137,6 @@ public class CalculatorTest {
     }
 
     @Test
-
     public void shouldReturnSquareOfResult() {
         Calculator calculator = new Calculator();
         calculator.doOperation("add", 4);
@@ -149,4 +166,23 @@ public class CalculatorTest {
         assertThat(actualResult, is(4.0));
     }
 
+    @Test
+    public void shouldReturnFactorialOfResult() {
+        Calculator calculator = new Calculator();
+        calculator.doOperation("factorial", 4.0);
+
+        double actualResult = calculator.doOperation("fatorial", 4.0);
+
+        assertThat(actualResult, is(24.0));
+    }
+
+    @Test
+    public void shouldReturnThirdOfResult() {
+        Calculator calculator = new Calculator();
+        calculator.doOperation("third", 6.0);
+
+        double actualResult = calculator.doOperation("third", 12.0);
+
+        assertThat(actualResult, is(6.0));
+    }
 }

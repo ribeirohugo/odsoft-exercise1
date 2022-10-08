@@ -36,6 +36,12 @@ public class Calculator {
             case "cubert":
                 accumulator = Math.cbrt(accumulator);
                 break;
+            case "factorial":
+                accumulator += factorial(operand);
+                break;
+            case "third":
+                accumulator += (operand / 3.0);
+                break;
             case "cancel":
                 accumulator = 0;
                 break;
@@ -43,5 +49,17 @@ public class Calculator {
                 System.exit(0);
         }
         return accumulator;
+    }
+
+    private double factorial(double n) {
+        return factorialAux(Math.floor(n), 1);
+    }
+
+    private double factorialAux(double n, double amount) {
+        if(n > 0) {
+            amount *= n;
+            amount = factorialAux(n-1, amount);
+        }
+        return amount;
     }
 }
