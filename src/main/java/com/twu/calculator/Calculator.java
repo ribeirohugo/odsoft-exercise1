@@ -4,6 +4,11 @@ public class Calculator {
 
     private double accumulator;
 
+    /** 
+     * @param operation is the math operation to be done
+     * @param operand is the value to apply to the operation
+     * @return double
+     */
     public double doOperation(String operation, double operand) {
         switch (operation) {
             case "add":
@@ -51,10 +56,21 @@ public class Calculator {
         return accumulator;
     }
 
+    
+    /** 
+     * @param n is the number to calculate factorial of
+     * @return double
+     */
     private double factorial(double n) {
         return factorialAux(Math.floor(n), 1);
     }
 
+    
+    /** 
+     * @param n is the current value to calculate factorial of
+     * @param amount is the current amount value of the calculation
+     * @return double
+     */
     private double factorialAux(double n, double amount) {
         if(n > 0) {
             amount *= n;
