@@ -61,6 +61,13 @@ javadoc {
 }
 
 task renderPlantUml(type: RenderPlantUmlTask) {
+    println "Generating plant uml diagrams..."
+}
+
+task copyPNG(type: Copy) {
+    from layout.buildDirectory.dir("puml/com/twu/calculator")
+    include '*.png'
+    into layout.buildDirectory.dir("docs/javadoc/com/twu/calculator")
 }
 
 // To execute the app
@@ -72,3 +79,6 @@ task runApp (type: JavaExec, dependsOn: classes){
     main = "com.twu.calculator.CalculatorApp"
     classpath = sourceSets.main.runtimeClasspath
 }
+
+javadoc.finalizedBy renderPlantUml
+renderPlantUml.finalizedBy copyPNG
